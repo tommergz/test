@@ -4,10 +4,13 @@ const authRouter = require('./routes/auth/authRouter')
 const userRouter = require('./routes/user/userRouter')
 const latencyRouter = require('./routes/latency/latencyRouter')
 require("dotenv").config()
+const cors = require("cors")
+
 const PORT = process.env.PORT || 5000
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 app.use(authRouter)
 app.use(userRouter)
